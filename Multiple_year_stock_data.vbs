@@ -49,7 +49,7 @@ For Each ws In Worksheets
         tvolume = tvolume + ws.Cells(I, 7).Value 'add volume for current row to tvolume; total already recorded for final row of ticker symbol
     Next I
     
-    'reset metrics for each sheet
+    'reset summary metrics for each sheet
     greatestInc = 0
     greatestDec = 0
     tvolume = 0
@@ -59,11 +59,9 @@ For Each ws In Worksheets
         If ws.Cells(k, 11).Value > greatestInc Then
             greatestInc = ws.Cells(k, 11).Value
             GPIticker = ws.Cells(k, 9).Value
-            'MsgBox ("new high!" + Str(greatestInc)) 'for testing
         ElseIf ws.Cells(k, 11).Value < greatestDec Then
             greatestDec = ws.Cells(k, 11).Value
             GPDticker = ws.Cells(k, 9).Value
-            'MsgBox ("new low!" + Str(greatestDec)) 'for testing
         End If
         
         If ws.Cells(k, 12).Value > greatestTV Then
